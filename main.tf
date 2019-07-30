@@ -23,6 +23,6 @@ resource "azurerm_app_service" "main" {
   app_service_plan_id = "${azurerm_app_service_plan.main.id}"
 
   site_config {
-    jlinux_fx_version = "JAVA 11|SE"
+    linux_fx_version = "JAVA 11|SE"
   }
 }
