@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "main" {
-  name     = "${var.prefix}-resources"
-  location = "${var.location}"
+  name     = "Vizient-CICD-RG"
+  location = "westus"
 }
 
 resource "azurerm_app_service_plan" "main" {
-  name                = "${var.prefix}-asp"
+  name                = "vizientsr-asp"
   location            = "${azurerm_resource_group.main.location}"
   resource_group_name = "${azurerm_resource_group.main.name}"
   kind                = "Linux"
@@ -17,7 +17,7 @@ resource "azurerm_app_service_plan" "main" {
 }
 
 resource "azurerm_app_service" "main" {
-  name                = "${var.prefix}-appservice"
+  name                = "vizientsr-appservice"
   location            = "${azurerm_resource_group.main.location}"
   resource_group_name = "${azurerm_resource_group.main.name}"
   app_service_plan_id = "${azurerm_app_service_plan.main.id}"
